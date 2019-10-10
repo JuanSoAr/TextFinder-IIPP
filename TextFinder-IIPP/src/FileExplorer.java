@@ -10,15 +10,14 @@ public class FileExplorer {
         fileChooser.setTitle("Buscar Imagen");
 
         fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("All Images", "."),
-                new FileChooser.ExtensionFilter("JPG", "*.jpg"),
-                new FileChooser.ExtensionFilter("PNG", "*.png")
+        		//Estos tres maes se encargan de filtrar el tipo de archivo que estamos buscando
+                new FileChooser.ExtensionFilter("PDF", "*.pdf"),
+                new FileChooser.ExtensionFilter("TXT", "*.txt"),
+                new FileChooser.ExtensionFilter("DOCX", "*.docx")
+
         );
-
-        File imgFile = fileChooser.showOpenDialog(display2);
-
-        if (imgFile != null) {
-            Image image = new Image("file:" + imgFile.getAbsolutePath());
-        }
+        //Este mae se encarga de guardar el archivo selecionado si no se seleciona nada el que en null
+        File url = fileChooser.showOpenDialog(display2);
+        System.out.print(url);
     }
 }
