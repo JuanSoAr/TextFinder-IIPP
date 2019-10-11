@@ -1,3 +1,5 @@
+import java.io.IOException;
+
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -27,9 +29,10 @@ public class GUI extends Application {
 		 */
 		Button button1 = new Button("Text Finder");
 		Button button2 = new Button("Instrucciones");
-
+		
+		
 		VBox panel1 = new VBox(20);
-		panel1.setAlignment(Pos.CENTER );
+		panel1.setAlignment(Pos.CENTER);
 		panel1.getChildren().addAll(button1, button2);	
 
 		StackPane canvas1 = new StackPane();
@@ -51,8 +54,9 @@ public class GUI extends Application {
 		Button bDate = new Button("Ordenar Fecha");
 		Button bSize = new Button("Ordenar Tamaño");
 		
+		
 		VBox cButton = new VBox(15);
-		//cButton.setAlignment(Pos.CENTER_LEFT);
+		cButton.setAlignment(Pos.CENTER);
 		cButton.getChildren().addAll(bAdd, bName, bDate, bSize);
 		
 		Pane files = new Pane();
@@ -64,7 +68,7 @@ public class GUI extends Application {
 		sb.setHbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
 
 		VBox VBoxFiles = new VBox(10);
-		//VBoxFiles.setAlignment(Pos.CENTER_RIGHT);
+		VBoxFiles.setAlignment(Pos.BOTTOM_LEFT);
 		VBoxFiles.getChildren().addAll(sb);
 		
 		HBox panelMain = new HBox(200);
@@ -80,7 +84,14 @@ public class GUI extends Application {
 		 * Events for bottoms
 		 */
 		button1.setOnAction(e -> primaryStage.setScene(display2));
-		bAdd.setOnAction(e -> FileExplorer.fileExplorer(primaryStage));
+		bAdd.setOnAction(e -> {
+			try {
+				FileExplorer.fileExplorer(primaryStage);
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		});
 		
 		primaryStage.show();	
 	}
