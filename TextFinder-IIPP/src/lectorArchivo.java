@@ -15,5 +15,7 @@ public class lectorArchivo{
 	        }
 	        b.close();
 	    }
+	    
+	    
 
 }

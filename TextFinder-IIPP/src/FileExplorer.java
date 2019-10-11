@@ -21,7 +21,8 @@ public class FileExplorer {
     }
     
     public static void callMethood(File url) throws FileNotFoundException, IOException {
-		lectorArchivo.contentTXT(url);
+		//lectorArchivo.contentTXT(url);
+    	lectorDOCX.nose(url);
     }
     
     
